@@ -2,7 +2,7 @@ import UIKit
 import MyCameraModule
 import MyOpenWeatherPlus
 
-class TBTabbarViewController: UITabBarController {
+public final class TBTabbarViewController: UITabBarController {
 
     // MARK: - Life Cycle
 
