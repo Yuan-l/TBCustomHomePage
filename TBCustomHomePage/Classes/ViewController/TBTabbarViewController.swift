@@ -6,7 +6,7 @@ public final class TBTabbarViewController: UITabBarController {
 
     // MARK: - Life Cycle
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         setupChildControllers()
         setupTabBarAppearance()
