@@ -1,0 +1,6 @@
+use_frameworks!
+target 'TBCustomHomePage_Tests' do
+  pod 'TBCustomHomePage', :path => '../'
+  
+  
+end
