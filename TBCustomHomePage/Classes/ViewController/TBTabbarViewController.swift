@@ -6,6 +6,11 @@ public final class TBTabbarViewController: UITabBarController {
 
     // MARK: - Life Cycle
 
+    /// 让状态栏样式跟随当前选中的页面
+    public override var childForStatusBarStyle: UIViewController? {
+        selectedViewController
+    }
+
     public override func viewDidLoad() {
         super.viewDidLoad()
         setupChildControllers()
@@ -21,7 +26,7 @@ public final class TBTabbarViewController: UITabBarController {
         cameraVC.tabBarItem = UITabBarItem(title: "相机",
                                            image: UIImage(systemName: "camera"),
                                            selectedImage: UIImage(systemName: "camera.fill"))
-        let cameraNav = UINavigationController(rootViewController: cameraVC)
+        let cameraNav = TBNavigationController(rootViewController: cameraVC)
 
         // 天气模块（OpenWeatherPlus）
         // 注意：QWeatherHomeViewController 内部通过 self.navigationController 做 push，
@@ -30,7 +35,7 @@ public final class TBTabbarViewController: UITabBarController {
         weatherVC.tabBarItem = UITabBarItem(title: "天气",
                                             image: UIImage(systemName: "cloud.sun"),
                                             selectedImage: UIImage(systemName: "cloud.sun.fill"))
-        let weatherNav = UINavigationController(rootViewController: weatherVC)
+        let weatherNav = TBNavigationController(rootViewController: weatherVC)
 
         viewControllers = [cameraNav, weatherNav]
     }
@@ -46,5 +51,13 @@ public final class TBTabbarViewController: UITabBarController {
         if #available(iOS 15.0, *) {
             tabBar.scrollEdgeAppearance = appearance
         }
+    }
+}
+
+/// 让导航控制器把状态栏样式交给当前顶层页面决定
+final class TBNavigationController: UINavigationController {
+
+    override var childForStatusBarStyle: UIViewController? {
+        topViewController
     }
 }
