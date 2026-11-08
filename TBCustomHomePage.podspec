@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'TBCustomHomePage'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of TBCustomHomePage.'
+  s.summary          = '首页业务模块：TabBar 与主页容器'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
